@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovementBehaviour : MonoBehaviour
@@ -27,7 +28,23 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
+    {    
+        Animator.SetBool("hit", false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Deadblock1"))
+            {
+                StartCoroutine(hitSpike());
+            }
+    }
+    IEnumerator hitSpike()
     {
+        Animator.SetBool("hit", true);
+        yield return new WaitForSeconds(0.5f);
+        transform.position = new Vector2(-0.293f, 0.806f);
+        Animator.SetBool("hit", false);
     }
 
     // Update is called once per frame
