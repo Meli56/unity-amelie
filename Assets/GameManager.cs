@@ -4,10 +4,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
     public TMP_Text FruitText;
+    public TMP_Text Life;
 
     private int _fruitCount = 0;
+    private int _life = 10;
 
     private void Awake()
     {
@@ -24,5 +25,10 @@ public class GameManager : MonoBehaviour
     public void AddFruit()
     {
         FruitText.text = $"Fruits: {++_fruitCount}";
+    }
+
+    public void RemoveLife()
+    {
+        Life.text = $"Vies: {--_life}";
     }
 }
