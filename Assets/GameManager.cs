@@ -30,6 +30,10 @@ public class GameManager : MonoBehaviour
 
     public void RemoveLife()
     {
-        LifeText.text = $"Vies: {--_livecount}";
+        if (LifeText.text.Equals("Vies: 0")){
+            Debug.Log("Fin de game");
+        }else{
+            LifeText.text = $"Vies: {--_livecount}";
+        }
     }
 }

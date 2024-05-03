@@ -23,6 +23,10 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
     public LayerMask GroundMask;
     public float RaycastDistance;
+    
+    private float _x ;
+    private float _y ;
+
 
     private bool _isGrounded;
 
@@ -30,20 +34,29 @@ public class PlayerMovementBehaviour : MonoBehaviour
     void Start()
     {    
         Animator.SetBool("hit", false);
+        _x = -0.293f;
+        _y =  0.806f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-        {
+    {
+            if (collision.CompareTag("Checkpoint"))
+            {
+                _x = 27.11f;
+                _y =  -4.55f;
+            }
             if (collision.CompareTag("Deadblock1"))
             {
                 StartCoroutine(hitSpike());
             }
     }
+
+
     IEnumerator hitSpike()
     {
         Animator.SetBool("hit", true);
         yield return new WaitForSeconds(0.5f);
-        transform.position = new Vector2(-0.293f, 0.806f);
+        transform.position = new Vector2(_x, _y);
         Animator.SetBool("hit", false);
     }
 
