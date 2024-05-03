@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Deadblock1
   - Checkpoint
+  - Trampoline
   layers:
   - Default
   - TransparentFX

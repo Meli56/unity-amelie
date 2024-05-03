@@ -49,6 +49,11 @@ public class PlayerMovementBehaviour : MonoBehaviour
             {
                 StartCoroutine(hitSpike());
             }
+            if (collision.CompareTag("Trampoline"))
+            {
+                Debug.Log("saut");
+                Rigidbody.AddForce(Vector2.up * JumpForce * 10);
+            }
     }
 
 
