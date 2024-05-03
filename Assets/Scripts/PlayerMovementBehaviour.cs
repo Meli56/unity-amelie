@@ -51,8 +51,11 @@ public class PlayerMovementBehaviour : MonoBehaviour
             }
             if (collision.CompareTag("Trampoline"))
             {
-                Debug.Log("saut");
-                Rigidbody.AddForce(Vector2.up * JumpForce * 10);
+                Rigidbody.AddForce(Vector2.up * JumpForce * 5);
+            }
+            if (collision.CompareTag("End"))
+            {
+                Debug.Log("BIEN JOUÉ !! VOUS AVEZ FINI !! ");
             }
     }
 
